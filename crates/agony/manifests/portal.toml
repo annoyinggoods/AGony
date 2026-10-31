@@ -1,0 +1,12 @@
+[app]
+id = "portal"
+name = "Portal"
+description = "Transfer files between computers securely"
+exec = "portal"
+args = []
+category = "net"
+icon = "globe"
+source = "https://github.com/SpatiumPortae/portal"
+license = "MIT"
+install = { scoop = "portal", cargo = "portal" }
+terminal_app = true

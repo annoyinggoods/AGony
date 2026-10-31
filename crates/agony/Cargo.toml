@@ -1,0 +1,44 @@
+[package]
+name = "agony"
+version = "0.9.0"
+# Part01 1.2.4: edition 2021 (env::set_var stays safe here).
+edition = "2021"
+publish = false
+license-file = "../../LICENSE"
+
+[[bin]]
+name = "agony"
+path = "src/main.rs"
+
+[dependencies]
+agony-core = { path = "../agony-core" }
+crossterm = "0.28"
+ratatui = { version = "=0.29.0", default-features = false, features = ["crossterm"] }
+ratatui-rmux = "0.10"
+rmux-sdk = "0.10"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "process", "sync"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+# Part01 1.4.4 mandates clap for verb dispatch.
+clap = { version = "4", features = ["derive"] }
+# Part02 2.3.2: the taskbar clock needs local time; chrono is the standard
+# way to format it without hand-rolling timezone tables.
+chrono = "0.4"
+# Part03 3.3.2: the carapace catalog import runs as a spawned subprocess
+# with a timeout, never inline — tokio's process feature is that runner.
+# Part05 5.2.1: the ignore-aware directory walker uses ripgrep's `ignore`
+# crate — the first justified new dependency of the part (git-exact
+# ignore semantics are not hand-rollable; the reuse rule's textbook case).
+ignore = "0.4"
+# Part10 10.3.2: the bundle installer verifies each release asset before
+# it lands — sha256 in-process, cross-platform, no certutil/shasum side
+# channels. Pure Rust, no transitive tree.
+sha2 = "0.10"
+
+# The exe's icon (from the user's AGony artwork) embeds at build time.
+# Part08 8.4.1: `agony thanks`' dependency table is `cargo metadata` at
+# build time, embedded — serde_json parses the metadata in build.rs.
+[build-dependencies]
+winresource = "0.1"
+serde_json = "1"

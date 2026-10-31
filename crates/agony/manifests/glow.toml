@@ -1,0 +1,22 @@
+[app]
+id = "glow"
+name = "Glow"
+description = "Render markdown in the terminal"
+exec = "glow"
+args = []
+category = "text"
+icon = "book"
+source = "https://github.com/charmbracelet/glow"
+license = "MIT"
+bundled = true
+terminal_app = true
+open_with = ["md", "markdown"]
+
+[app.install]
+winget = "charmbracelet.glow"
+scoop = "glow"
+go = "github.com/charmbracelet/glow"
+
+[app.install.release]
+url = "https://github.com/charmbracelet/glow/releases/download/v3.0.0/glow_3.0.0_Windows_x86_64.zip"
+sha256 = "d8907e07436ecbb6738bc0e3bbf8aa6159e351f95082e9db3c3fc4200086f809"

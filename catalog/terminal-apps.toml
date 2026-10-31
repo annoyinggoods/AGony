@@ -1,0 +1,669 @@
+# AGony's app directory — the checked-in seed catalog (Part11 §11.2.1).
+#
+# One `[[app]]` entry per terminal app, seeded from the awesome-terminal
+# and awesome-tui lists via scripts/import-awesome.py, then reviewed by
+# hand: every license here was verified against the project's repository
+# (or crates.io) when the entry landed. The AGony built-ins and the GPL
+# shelf's flapioca live in the embedded manifests, not here.
+#
+# Categories: files | shell | text | dev | game | net | system
+# Install recipes are the user-facing commands the directory runs
+# (winget, then scoop, then cargo/go — Part11 §11.3.2's dispatch order);
+# entries without a recipe show their source instead.
+
+[[app]]
+id = "bat"
+name = "Bat"
+description = "A cat clone with syntax highlighting and git integration"
+exec = "bat"
+category = "text"
+icon = "book"
+source = "https://github.com/sharkdp/bat"
+license = "MIT OR Apache-2.0"
+install = { scoop = "bat", cargo = "bat" }
+
+[[app]]
+id = "eza"
+name = "eza"
+description = "A modern, maintained replacement for ls"
+exec = "eza"
+category = "files"
+icon = "folder"
+source = "https://github.com/eza-community/eza"
+license = "EUPL-1.2"
+install = { scoop = "eza", cargo = "eza" }
+
+[[app]]
+id = "fzf"
+name = "fzf"
+description = "A command-line fuzzy finder"
+exec = "fzf"
+category = "dev"
+icon = "search"
+source = "https://github.com/junegunn/fzf"
+license = "MIT"
+install = { scoop = "fzf", go = "github.com/junegunn/fzf" }
+
+[[app]]
+id = "ripgrep"
+name = "Ripgrep"
+description = "Recursively search directories with regexes"
+exec = "rg"
+category = "text"
+icon = "search"
+source = "https://github.com/BurntSushi/ripgrep"
+license = "Unlicense OR MIT"
+install = { scoop = "ripgrep", cargo = "ripgrep" }
+
+[[app]]
+id = "fd"
+name = "fd"
+description = "A simple, fast and user-friendly alternative to find"
+exec = "fd"
+category = "files"
+icon = "folder"
+source = "https://github.com/sharkdp/fd"
+license = "MIT OR Apache-2.0"
+install = { scoop = "fd", cargo = "fd-find" }
+
+[[app]]
+id = "zoxide"
+name = "Zoxide"
+description = "A smarter cd command that learns your habits"
+exec = "zoxide"
+category = "shell"
+icon = "app"
+source = "https://github.com/ajeetdsouza/zoxide"
+license = "MIT"
+install = { scoop = "zoxide", cargo = "zoxide" }
+
+[[app]]
+id = "starship"
+name = "Starship"
+description = "A minimal, blazing-fast, customizable shell prompt"
+exec = "starship"
+category = "shell"
+icon = "app"
+source = "https://github.com/starship/starship"
+license = "ISC"
+install = { scoop = "starship", cargo = "starship" }
+
+[[app]]
+id = "alacritty"
+name = "Alacritty"
+description = "A cross-platform, OpenGL terminal emulator"
+exec = "alacritty"
+category = "system"
+icon = "app"
+source = "https://github.com/alacritty/alacritty"
+license = "Apache-2.0"
+install = { scoop = "alacritty", cargo = "alacritty" }
+
+[[app]]
+id = "wezterm"
+name = "WezTerm"
+description = "A GPU-accelerated cross-platform terminal emulator"
+exec = "wezterm"
+category = "system"
+icon = "app"
+source = "https://github.com/wez/wezterm"
+license = "MIT"
+install = { scoop = "wezterm" }
+
+[[app]]
+id = "kitty"
+name = "kitty"
+description = "A fast, feature-rich terminal emulator"
+exec = "kitty"
+category = "system"
+icon = "app"
+source = "https://github.com/kovidgoyal/kitty"
+license = "GPL-3.0"
+install = { scoop = "kitty" }
+
+[[app]]
+id = "tmux"
+name = "tmux"
+description = "A terminal multiplexer (the classic)"
+exec = "tmux"
+category = "system"
+icon = "app"
+source = "https://github.com/tmux/tmux"
+license = "ISC"
+
+[[app]]
+id = "zellij"
+name = "Zellij"
+description = "A terminal workspace with layouts and plugins"
+exec = "zellij"
+category = "system"
+icon = "app"
+source = "https://github.com/zellij-org/zellij"
+license = "MIT"
+install = { cargo = "zellij" }
+
+[[app]]
+id = "btop"
+name = "btop++"
+description = "A monitor of resources with a tree view and graphs"
+exec = "btop"
+category = "system"
+icon = "app"
+source = "https://github.com/aristocratos/btop"
+license = "Apache-2.0"
+install = { scoop = "btop" }
+
+[[app]]
+id = "bottom"
+name = "Bottom"
+description = "A customizable cross-platform graphical process monitor"
+exec = "btm"
+category = "system"
+icon = "app"
+source = "https://github.com/ClementTsang/bottom"
+license = "MIT"
+install = { scoop = "bottom", cargo = "bottom" }
+
+[[app]]
+id = "lazygit"
+name = "Lazygit"
+description = "A simple terminal UI for git commands"
+exec = "lazygit"
+category = "dev"
+icon = "app"
+source = "https://github.com/jesseduffield/lazygit"
+license = "MIT"
+install = { scoop = "lazygit", go = "github.com/jesseduffield/lazygit" }
+
+[[app]]
+id = "lazydocker"
+name = "Lazydocker"
+description = "A simple terminal UI for docker and docker-compose"
+exec = "lazydocker"
+category = "dev"
+icon = "app"
+source = "https://github.com/jesseduffield/lazydocker"
+license = "MIT"
+install = { scoop = "lazydocker", go = "github.com/jesseduffield/lazydocker" }
+
+[[app]]
+id = "gitui"
+name = "GitUI"
+description = "A blazing-fast terminal UI for git"
+exec = "gitui"
+category = "dev"
+icon = "app"
+source = "https://github.com/gitui-org/gitui"
+license = "MIT"
+install = { scoop = "gitui", cargo = "gitui" }
+
+[[app]]
+id = "gh"
+name = "GitHub CLI"
+description = "Take GitHub to the command line"
+exec = "gh"
+category = "net"
+icon = "globe"
+source = "https://github.com/cli/cli"
+license = "MIT"
+install = { winget = "GitHub.cli", scoop = "gh" }
+
+[[app]]
+id = "glab"
+name = "Glab"
+description = "An open-source GitLab command-line tool"
+exec = "glab"
+category = "net"
+icon = "globe"
+source = "https://gitlab.com/gitlab-org/cli"
+license = "MIT"
+install = { scoop = "glab" }
+
+[[app]]
+id = "jq"
+name = "jq"
+description = "A lightweight and flexible command-line JSON processor"
+exec = "jq"
+category = "dev"
+icon = "app"
+source = "https://github.com/jqlang/jq"
+license = "MIT"
+install = { scoop = "jq" }
+
+[[app]]
+id = "yq"
+name = "yq"
+description = "A lightweight command-line YAML, JSON and XML processor"
+exec = "yq"
+category = "dev"
+icon = "app"
+source = "https://github.com/mikefarah/yq"
+license = "MIT"
+install = { scoop = "yq", go = "github.com/mikefarah/yq" }
+
+[[app]]
+id = "hexyl"
+name = "hexyl"
+description = "A command-line hex viewer with colored output"
+exec = "hexyl"
+category = "dev"
+icon = "app"
+source = "https://github.com/sharkdp/hexyl"
+license = "MIT OR Apache-2.0"
+install = { scoop = "hexyl", cargo = "hexyl" }
+
+[[app]]
+id = "dust"
+name = "du-dust"
+description = "A more intuitive version of du, written in Rust"
+exec = "dust"
+category = "system"
+icon = "app"
+source = "https://github.com/bootandy/dust"
+license = "Apache-2.0"
+install = { scoop = "dust", cargo = "du-dust" }
+
+[[app]]
+id = "duf"
+name = "duf"
+description = "Disk usage/free utility with a table view"
+exec = "duf"
+category = "system"
+icon = "app"
+source = "https://github.com/muesli/duf"
+license = "MIT OR Apache-2.0"
+install = { scoop = "duf", go = "github.com/muesli/duf" }
+
+[[app]]
+id = "procs"
+name = "procs"
+description = "A modern replacement for ps, written in Rust"
+exec = "procs"
+category = "system"
+icon = "app"
+source = "https://github.com/dalance/procs"
+license = "MIT"
+install = { scoop = "procs", cargo = "procs" }
+
+[[app]]
+id = "sd"
+name = "sd"
+description = "An intuitive find-and-replace CLI (sed alternative)"
+exec = "sd"
+category = "text"
+icon = "app"
+source = "https://github.com/chmln/sd"
+license = "MIT"
+install = { scoop = "sd", cargo = "sd" }
+
+[[app]]
+id = "hyperfine"
+name = "hyperfine"
+description = "A command-line benchmarking tool"
+exec = "hyperfine"
+category = "dev"
+icon = "app"
+source = "https://github.com/sharkdp/hyperfine"
+license = "MIT OR Apache-2.0"
+install = { scoop = "hyperfine", cargo = "hyperfine" }
+
+[[app]]
+id = "tokei"
+name = "Tokei"
+description = "Count your code, quickly"
+exec = "tokei"
+category = "dev"
+icon = "app"
+source = "https://github.com/XAMPPRocky/tokei"
+license = "MIT OR Apache-2.0"
+install = { scoop = "tokei", cargo = "tokei" }
+
+[[app]]
+id = "tealdeer"
+name = "Tealdeer"
+description = "A very fast implementation of tldr in Rust"
+exec = "tldr"
+category = "shell"
+icon = "book"
+source = "https://github.com/tealdeer-rs/tealdeer"
+license = "MIT OR Apache-2.0"
+install = { scoop = "tealdeer", cargo = "tealdeer" }
+
+[[app]]
+id = "delta"
+name = "delta"
+description = "A syntax-highlighting pager for git diffs"
+exec = "delta"
+category = "dev"
+icon = "app"
+source = "https://github.com/dandavison/delta"
+license = "MIT"
+install = { scoop = "delta", cargo = "git-delta" }
+
+[[app]]
+id = "ncdu"
+name = "Ncdu"
+description = "NCurses disk usage analyzer"
+exec = "ncdu"
+category = "system"
+icon = "app"
+source = "https://code.blicky.net/yorhel/ncdu"
+license = "MIT"
+install = { scoop = "ncdu" }
+
+[[app]]
+id = "gdu"
+name = "gdu"
+description = "Fast disk usage analyzer with a console interface"
+exec = "gdu"
+category = "system"
+icon = "app"
+source = "https://github.com/dundee/gdu"
+license = "MIT"
+install = { scoop = "gdu", go = "github.com/dundee/gdu" }
+
+[[app]]
+id = "ctop"
+name = "ctop"
+description = "A top-like interface for container metrics"
+exec = "ctop"
+category = "net"
+icon = "globe"
+source = "https://github.com/bcicen/ctop"
+license = "MIT"
+install = { go = "github.com/bcicen/ctop" }
+
+[[app]]
+id = "asciinema"
+name = "asciinema"
+description = "Record and share terminal sessions"
+exec = "asciinema"
+category = "dev"
+icon = "film"
+source = "https://github.com/asciinema/asciinema"
+license = "GPL-3.0"
+install = { go = "github.com/asciinema/asciinema" }
+
+[[app]]
+id = "helix"
+name = "Helix"
+description = "A post-modern modal text editor"
+exec = "hx"
+category = "text"
+icon = "book"
+source = "https://github.com/helix-editor/helix"
+license = "MPL-2.0"
+install = { scoop = "helix", cargo = "helix-term" }
+
+[[app]]
+id = "micro"
+name = "Micro"
+description = "A modern and intuitive terminal-based text editor"
+exec = "micro"
+category = "text"
+icon = "book"
+source = "https://github.com/zyedidia/micro"
+license = "MIT"
+install = { scoop = "micro" }
+
+[[app]]
+id = "nushell"
+name = "Nushell"
+description = "A new type of shell that treats data as tables"
+exec = "nu"
+category = "shell"
+icon = "app"
+source = "https://github.com/nushell/nushell"
+license = "ISC"
+install = { scoop = "nushell", cargo = "nu" }
+
+[[app]]
+id = "nnn"
+name = "nnn"
+description = "A very fast and resource-friendly file manager"
+exec = "nnn"
+category = "files"
+icon = "folder"
+source = "https://github.com/jarun/nnn"
+license = "BSD-2-Clause"
+install = { scoop = "nnn" }
+
+[[app]]
+id = "broot"
+name = "Broot"
+description = "A new way to see and navigate directory trees"
+exec = "broot"
+category = "files"
+icon = "folder"
+source = "https://github.com/Canop/broot"
+license = "MIT"
+install = { scoop = "broot", cargo = "broot" }
+
+[[app]]
+id = "xh"
+name = "xh"
+description = "A friendly and fast tool for sending HTTP requests"
+exec = "xh"
+category = "net"
+icon = "globe"
+source = "https://github.com/ducaale/xh"
+license = "MIT"
+install = { scoop = "xh", cargo = "xh" }
+
+[[app]]
+id = "curlie"
+name = "Curlie"
+description = "The power of curl, the ease of use of httpie"
+exec = "curlie"
+category = "net"
+icon = "globe"
+source = "https://github.com/rs/curlie"
+license = "MIT"
+install = { scoop = "curlie", go = "github.com/rs/curlie" }
+
+[[app]]
+id = "gping"
+name = "gping"
+description = "Ping, but with a graph"
+exec = "gping"
+category = "net"
+icon = "globe"
+source = "https://github.com/orf/gping"
+license = "MIT"
+install = { scoop = "gping", cargo = "gping" }
+
+[[app]]
+id = "trippy"
+name = "Trippy"
+description = "A network diagnostic tool (mtr combined with a TUI)"
+exec = "trip"
+category = "net"
+icon = "globe"
+source = "https://github.com/fujiapple852/trippy"
+license = "Apache-2.0"
+install = { scoop = "trippy", cargo = "trippy" }
+
+[[app]]
+id = "fastfetch"
+name = "fastfetch"
+description = "A neofetch-like tool for fetching system information"
+exec = "fastfetch"
+category = "system"
+icon = "app"
+source = "https://github.com/fastfetch-cli/fastfetch"
+license = "MIT"
+install = { scoop = "fastfetch" }
+
+[[app]]
+id = "gh-dash"
+name = "gh-dash"
+description = "A rich terminal UI for GitHub pull requests and issues"
+exec = "gh-dash"
+category = "dev"
+icon = "app"
+source = "https://github.com/dlvhdr/gh-dash"
+license = "MIT"
+install = { go = "github.com/dlvhdr/gh-dash" }
+
+[[app]]
+id = "act"
+name = "act"
+description = "Run your GitHub Actions locally"
+exec = "act"
+category = "dev"
+icon = "app"
+source = "https://github.com/nektos/act"
+license = "MIT"
+install = { scoop = "act", go = "github.com/nektos/act" }
+
+[[app]]
+id = "difftastic"
+name = "Difftastic"
+description = "A structural diff that understands syntax"
+exec = "difft"
+category = "dev"
+icon = "app"
+source = "https://github.com/Wilfred/difftastic"
+license = "MIT"
+install = { scoop = "difftastic", cargo = "difftastic" }
+
+[[app]]
+id = "watchexec"
+name = "watchexec"
+description = "Execute commands in response to file changes"
+exec = "watchexec"
+category = "dev"
+icon = "app"
+source = "https://github.com/watchexec/watchexec"
+license = "Apache-2.0"
+install = { scoop = "watchexec", cargo = "watchexec" }
+
+[[app]]
+id = "jless"
+name = "jless"
+description = "A command-line JSON viewer"
+exec = "jless"
+category = "dev"
+icon = "app"
+source = "https://github.com/PaulJuliusMartinez/jless"
+license = "MIT"
+install = { scoop = "jless", cargo = "jless" }
+
+[[app]]
+id = "atuin"
+name = "Atuin"
+description = "Synced, searchable shell history with a sqlite backend"
+exec = "atuin"
+category = "shell"
+icon = "search"
+source = "https://github.com/atuinsh/atuin"
+license = "MIT"
+install = { scoop = "atuin", cargo = "atuin" }
+
+[[app]]
+id = "presenterm"
+name = "presenterm"
+description = "Present markdown slides in the terminal"
+exec = "presenterm"
+category = "text"
+icon = "tv"
+source = "https://github.com/mfontanini/presenterm"
+license = "BSD-2-Clause"
+install = { scoop = "presenterm", cargo = "presenterm" }
+
+[[app]]
+id = "wiki-tui"
+name = "wiki-tui"
+description = "A nice and simple Wikipedia text user interface"
+exec = "wiki-tui"
+category = "net"
+icon = "book"
+source = "https://github.com/Builditluc/wiki-tui"
+license = "MIT"
+install = { cargo = "wiki-tui" }
+
+[[app]]
+id = "pastel"
+name = "pastel"
+description = "A command-line tool to generate, analyze and convert colors"
+exec = "pastel"
+category = "dev"
+icon = "app"
+source = "https://github.com/sharkdp/pastel"
+license = "MIT OR Apache-2.0"
+install = { scoop = "pastel", cargo = "pastel" }
+
+[[app]]
+id = "onefetch"
+name = "Onefetch"
+description = "A command-line git information tool, straight in the terminal"
+exec = "onefetch"
+category = "dev"
+icon = "app"
+source = "https://github.com/onefetch/onefetch"
+license = "MIT"
+install = { scoop = "onefetch", cargo = "onefetch" }
+
+[[app]]
+id = "macchina"
+name = "Macchina"
+description = "A fast, minimal and customizable system information fetcher"
+exec = "macchina"
+category = "system"
+icon = "app"
+source = "https://github.com/Macchina-CLI/macchina"
+license = "MIT"
+install = { scoop = "macchina", cargo = "macchina" }
+
+[[app]]
+id = "iamb"
+name = "iamb"
+description = "A Matrix client for the terminal with vim keybindings"
+exec = "iamb"
+category = "net"
+icon = "globe"
+source = "https://github.com/ulyssa/iamb"
+license = "Apache-2.0"
+install = { cargo = "iamb" }
+
+[[app]]
+id = "neovim"
+name = "Neovim"
+description = "A hyperextensible vim-based text editor"
+exec = "nvim"
+category = "text"
+icon = "book"
+source = "https://github.com/neovim/neovim"
+license = "Apache-2.0"
+install = { winget = "Neovim.Neovim", scoop = "neovim" }
+
+[[app]]
+id = "vim"
+name = "Vim"
+description = "The ubiquitous text editor"
+exec = "vim"
+category = "text"
+icon = "book"
+source = "https://github.com/vim/vim"
+license = "Vim"
+install = { scoop = "vim" }
+
+[[app]]
+id = "htop"
+name = "htop"
+description = "An interactive process viewer (unix and WSL)"
+exec = "htop"
+category = "system"
+icon = "app"
+source = "https://github.com/htop-dev/htop"
+license = "GPL-2.0"
+
+[[app]]
+id = "midnightcommander"
+name = "Midnight Commander"
+description = "A feature-rich full-screen file manager (unix and WSL)"
+exec = "mc"
+category = "files"
+icon = "folder"
+source = "https://midnight-commander.org"
+license = "GPL-3.0"

@@ -1,0 +1,105 @@
+# The landing checklist, as CI (Part12 12.3): build, workspace tests,
+# clippy, fmt, the freedom grep, the platform-seam grep and the self-test
+# gate — the same gates, in the same order, as AGENTS.md's checklist.
+# Normal runners are not jobbed, so the self-test starts its own daemon
+# (the rmux binary is installed from crates.io first).
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  windows:
+    # 12.3.1 — the full landing checklist on the Windows-first platform.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: build
+        run: cargo build --workspace --all-targets
+      - name: tests
+        run: cargo test --workspace --all-targets
+      - name: clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: fmt
+        run: cargo fmt --all --check
+      - name: freedom grep (agony-core stays platform-free)
+        shell: bash
+        run: |
+          if grep -rniE "cfg\s*\(\s*target|rmux|std::fs|Instant::now" crates/agony-core/src; then
+            echo "::error::agony-core is not platform-free"; exit 1
+          fi
+      - name: platform-seam grep (no OS forks outside platform.rs)
+        shell: bash
+        run: |
+          if grep -rnEi "cfg\s*\(\s*(target_os|windows|unix)|env::consts::OS|std::os::(windows|unix)" \
+              $(find crates/agony/src -name '*.rs' ! -name 'platform.rs'); then
+            echo "::error::OS fork outside platform.rs"; exit 1
+          fi
+      - name: install the rmux daemon
+        run: cargo install rmux --locked
+      - name: self-test gate
+        run: cargo run -p agony -- selftest
+
+  linux:
+    # 12.3.2 — check + tests + greps, plus the self-test gate (Linux,
+    # where the environment is simplest).
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: build (check)
+        run: cargo check --workspace --all-targets
+      - name: tests
+        run: cargo test --workspace --all-targets
+      - name: clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+      - name: fmt
+        run: cargo fmt --all --check
+      - name: freedom grep (agony-core stays platform-free)
+        run: |
+          if grep -rniE "cfg\s*\(\s*target|rmux|std::fs|Instant::now" crates/agony-core/src; then
+            echo "::error::agony-core is not platform-free"; exit 1
+          fi
+      - name: platform-seam grep (no OS forks outside platform.rs)
+        run: |
+          if grep -rnEi "cfg\s*\(\s*(target_os|windows|unix)|env::consts::OS|std::os::(windows|unix)" \
+              $(find crates/agony/src -name '*.rs' ! -name 'platform.rs'); then
+            echo "::error::OS fork outside platform.rs"; exit 1
+          fi
+      - name: install the rmux daemon
+        run: cargo install rmux --locked
+      - name: self-test gate
+        run: cargo run -p agony -- selftest
+
+  macos:
+    # 12.3.2 — type-check and tests (no self-test: the gate is proven on
+    # Windows and Linux; macOS proves AGony's own code compiles and its
+    # pure paths run).
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: build (check)
+        run: cargo check --workspace --all-targets
+      - name: tests
+        run: cargo test --workspace --all-targets
+      - name: fmt
+        run: cargo fmt --all --check
+      - name: freedom grep (agony-core stays platform-free)
+        run: |
+          if grep -rniE "cfg\s*\(\s*target|rmux|std::fs|Instant::now" crates/agony-core/src; then
+            echo "::error::agony-core is not platform-free"; exit 1
+          fi
+      - name: platform-seam grep (no OS forks outside platform.rs)
+        run: |
+          if grep -rnEi "cfg\s*\(\s*(target_os|windows|unix)|env::consts::OS|std::os::(windows|unix)" \
+              $(find crates/agony/src -name '*.rs' ! -name 'platform.rs'); then
+            echo "::error::OS fork outside platform.rs"; exit 1
+          fi

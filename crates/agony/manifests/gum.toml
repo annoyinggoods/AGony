@@ -1,0 +1,21 @@
+[app]
+id = "gum"
+name = "Gum"
+description = "A tool for glamorous shell scripts"
+exec = "gum"
+args = []
+category = "dev"
+icon = "app"
+source = "https://github.com/charmbracelet/gum"
+license = "MIT"
+bundled = true
+terminal_app = false
+
+[app.install]
+winget = "charmbracelet.gum"
+scoop = "gum"
+go = "github.com/charmbracelet/gum"
+
+[app.install.release]
+url = "https://github.com/charmbracelet/gum/releases/download/v2.0.2/gum_2.0.2_Windows_x86_64.zip"
+sha256 = "0397091dec9b4e8f00e02b90fd3eb07bf45acabbdb61d67437950f18e03a8b79"

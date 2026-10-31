@@ -1,0 +1,19 @@
+[app]
+id = "gambit"
+name = "Gambit"
+description = "Play chess in the terminal"
+exec = "gambit"
+args = []
+category = "game"
+icon = "gamepad"
+source = "https://github.com/maaslalani/gambit"
+license = "MIT"
+bundled = true
+terminal_app = true
+
+[app.install]
+go = "github.com/maaslalani/gambit"
+
+[app.install.release]
+url = "https://github.com/maaslalani/gambit/releases/download/v0.1.0/gambit_0.1.0_Windows_x86_64.zip"
+sha256 = "b87d3d946ea6e3855e46bd8441c342bf29bd9b5a2c6a306ebadb3ce9b011c3e4"

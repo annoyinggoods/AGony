@@ -1,0 +1,23 @@
+[app]
+id = "superfile"
+name = "Superfile"
+description = "A pretty and modern terminal file manager"
+exec = "spf"
+args = []
+category = "files"
+icon = "folder"
+source = "https://github.com/yorukot/superfile"
+license = "MIT"
+bundled = true
+terminal_app = true
+
+[app.install]
+winget = "yorukot.superfile"
+scoop = "superfile"
+go = "github.com/yorukot/superfile"
+
+[app.install.release]
+# The hash-checked Windows asset the bundle installer fetches (10.3.2);
+# the hash is over the pinned release's zip, computed at landing time.
+url = "https://github.com/yorukot/superfile/releases/download/v1.6.0/superfile-windows-v1.6.0-amd64.zip"
+sha256 = "4264a84d38c5d13804960a5da9ea8dedb8a00439e2612d6b8a28699836ed0143"

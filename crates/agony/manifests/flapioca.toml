@@ -1,0 +1,14 @@
+[app]
+id = "flapioca"
+name = "Flapioca"
+description = "A Flappy Bird-inspired terminal game"
+exec = "flapioca"
+args = []
+category = "game"
+icon = "gamepad"
+source = "https://github.com/kbrgl/flapioca"
+license = "GPL-3.0"
+terminal_app = true
+
+[app.install]
+go = "github.com/kbrgl/flapioca"

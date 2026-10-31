@@ -1,0 +1,19 @@
+[app]
+id = "slides"
+name = "Slides"
+description = "Present markdown slides in the terminal"
+exec = "slides"
+args = []
+category = "text"
+icon = "tv"
+source = "https://github.com/maaslalani/slides"
+license = "MIT"
+# Bundled in the menu sense (10.3.1) but with no release recipe: the
+# project publishes no Windows release asset, so `bundle --install`
+# refuses it and names the recipe instead.
+bundled = true
+terminal_app = true
+
+[app.install]
+scoop = "slides"
+go = "github.com/maaslalani/slides"

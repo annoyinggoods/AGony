@@ -1,0 +1,13 @@
+# The shell itself. `exec` is substituted at load time with the detected
+# shell program (pwsh.exe, or powershell.exe as the fallback) — the shell
+# resolves platform facts, never the manifest format.
+[app]
+id = "shell"
+name = "Shell"
+description = "the AGony shell (PowerShell)"
+exec = "pwsh.exe"
+args = ["-NoLogo"]
+category = "shell"
+icon = "app"
+license = "MIT"
+terminal_app = true

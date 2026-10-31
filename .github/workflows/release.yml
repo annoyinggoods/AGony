@@ -1,0 +1,55 @@
+# Release tooling, CI half (Part12 12.4): on a v* tag, build the agony
+# binary per platform, archive it (scripts/dist.sh — carapace stays
+# scripted, never vendored), generate the notes from the roadmap part
+# titles (scripts/release-notes.sh, 12.4.2) and publish one GitHub
+# release. The version lives in Cargo.toml (0.1.0 since Part04, 12.4.3);
+# the tag should match it.
+
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+          - os: ubuntu-latest
+          - os: macos-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
+      - name: build + package the archive
+        shell: bash
+        run: scripts/dist.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: archives-${{ matrix.os }}
+          path: dist/*.tar.gz
+
+  publish:
+    needs: archive
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - name: release notes from the roadmap
+        run: scripts/release-notes.sh > notes.md
+      - name: create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --title "AGony ${{ github.ref_name }}" \
+            --notes-file notes.md \
+            dist/*.tar.gz

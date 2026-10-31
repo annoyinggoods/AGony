@@ -1,0 +1,10 @@
+# AGony's Cargo workspace.
+#
+# The spike (spikes/pane-embed) is deliberately NOT a member: it stays the
+# standalone reference implementation of the hosting chain (see its README).
+#
+# ratatui is pinned to exactly =0.29.0: ratatui-rmux 0.10 requires 0.29 and
+# neither may bump without the other (AGENTS.md).
+[workspace]
+resolver = "2"
+members = ["crates/agony", "crates/agony-core"]
